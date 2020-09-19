@@ -11,7 +11,7 @@ export class GraphqlOptions implements GqlOptionsFactory {
             useGlobalPrefix: true,
             debug: true,
             playground: true,
-            autoSchemaFile: 'schema.gql',
+            autoSchemaFile: "schema.gql",
         };
     }
 }

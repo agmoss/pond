@@ -1,8 +1,8 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from "@nestjs/graphql";
 
 @ObjectType()
 export class Pond {
-    @Field(type => ID)
+    @Field((type) => ID)
     id: string;
 
     @Field()
@@ -14,6 +14,6 @@ export class Pond {
     @Field()
     creationDate: Date;
 
-    @Field(type => [String])
+    @Field((type) => [String])
     opts: string[];
 }

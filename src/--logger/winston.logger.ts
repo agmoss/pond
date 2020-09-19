@@ -1,8 +1,6 @@
-import {
-    WinstonModule,
-} from "nest-winston";
+import { WinstonModule } from "nest-winston";
 import * as winston from "winston";
-import chalk from "chalk"
+import chalk from "chalk";
 
 const WL = WinstonModule.createLogger({
     transports: [
@@ -14,12 +12,22 @@ const WL = WinstonModule.createLogger({
                 winston.format.align(),
                 winston.format.printf((info) => {
                     const {
-                        timestamp, level, message, context, ...args
+                        timestamp,
+                        level,
+                        message,
+                        context,
+                        ...args
                     } = info;
 
-                    const ts = timestamp.slice(0, 19).replace('T', ' ');
-                    return ` ${chalk.red(context)} ${chalk.bgBlueBright(chalk.black(ts))} [${level}]: ${chalk.magenta(message)} ${Object.keys(args).length ? JSON.stringify(args, null, 2) : ''}`;
-                }),
+                    const ts = timestamp.slice(0, 19).replace("T", " ");
+                    return ` ${chalk.red(context)} ${chalk.bgBlueBright(
+                        chalk.black(ts)
+                    )} [${level}]: ${chalk.magenta(message)} ${
+                        Object.keys(args).length
+                            ? JSON.stringify(args, null, 2)
+                            : ""
+                    }`;
+                })
             ),
         }),
         new winston.transports.File({

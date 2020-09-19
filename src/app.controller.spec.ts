@@ -13,7 +13,7 @@ describe("AppController", () => {
     });
 
     describe("getPond", () => {
-        it('should return pond', () => {
+        it("should return pond", () => {
             const appController = app.get<AppController>(AppController);
             expect(appController.getPond()).toBe("pond");
         });

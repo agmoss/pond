@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
-import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLModule } from "@nestjs/graphql";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { PondsModule } from './ponds/ponds.module';
+import { PondsModule } from "./ponds/ponds.module";
 import { GraphqlOptions } from "./graphql.options";
-import { LoggerModule } from './--logger/--logger.module';
+import { LoggerModule } from "./--logger/--logger.module";
 
 @Module({
     imports: [
@@ -17,4 +17,4 @@ import { LoggerModule } from './--logger/--logger.module';
     controllers: [AppController],
     providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,17 +1,17 @@
-import { Field, InputType } from '@nestjs/graphql';
-import { IsOptional, Length, MaxLength } from 'class-validator';
+import { Field, InputType } from "@nestjs/graphql";
+import { IsOptional, Length, MaxLength } from "class-validator";
 
 @InputType()
 export class PondInput {
-  @Field()
-  @MaxLength(30)
-  title: string;
+    @Field()
+    @MaxLength(30)
+    title: string;
 
-  @Field({ nullable: true })
-  @IsOptional()
-  @Length(30, 255)
-  description?: string;
+    @Field({ nullable: true })
+    @IsOptional()
+    @Length(30, 255)
+    description?: string;
 
-  @Field(type => [String])
-  opts: string[];
+    @Field((type) => [String])
+    opts: string[];
 }

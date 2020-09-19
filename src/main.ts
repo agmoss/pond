@@ -1,14 +1,13 @@
 import { NestFactory } from "@nestjs/core";
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from "@nestjs/common";
 import bodyParser from "body-parser";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import { AppModule } from "./app.module";
 import WinstonLogger from "./--logger/winston.logger";
-import {__Logger} from "./--logger/--logger.service"
+import { __Logger } from "./--logger/--logger.service";
 
 async function bootstrap() {
-
     const port = 3000;
 
     const bootstrapLogger = new __Logger();
@@ -29,7 +28,11 @@ async function bootstrap() {
     });
 
     await app.listen(port);
-    bootstrapLogger.log(`NODE_ENV=${process.env.NODE_ENV} => Application is running on: ${await app.getUrl()} :Port ${port}`);
+    bootstrapLogger.log(
+        `NODE_ENV=${
+            process.env.NODE_ENV
+        } => Application is running on: ${await app.getUrl()} :Port ${port}`
+    );
 }
 
 bootstrap();
