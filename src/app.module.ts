@@ -3,14 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { PondsModule } from './ponds/ponds.module';
+import { GraphqlOptions } from "./graphql.options";
 
 @Module({
     imports: [
-        GraphQLModule.forRoot({
-            debug: true,
-            playground: true,
-            installSubscriptionHandlers: true,
-            autoSchemaFile: 'schema.gql',
+        GraphQLModule.forRootAsync({
+            useClass: GraphqlOptions,
         }),
         PondsModule,
     ],
