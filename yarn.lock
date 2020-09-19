@@ -1484,6 +1484,13 @@
   dependencies:
     "@types/express" "*"
 
+"@types/express-rate-limit@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@types/express-rate-limit/-/express-rate-limit-5.1.0.tgz#c08e9b4957989fbe5ff8d5224f392359a264a597"
+  integrity sha512-vmg7S3hUnfFmp06V01DrTB41mbQYXMV/F4aF5KKnfCIeSlnizatXaqO9UgR6LvNEEd3eMpuUTLxR6nv3d4hZ6g==
+  dependencies:
+    "@types/express" "*"
+
 "@types/express-serve-static-core@*":
   version "4.17.12"
   resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.17.12.tgz#9a487da757425e4f267e7d1c5720226af7f89591"
@@ -1512,6 +1519,11 @@
     "@types/express-serve-static-core" "*"
     "@types/qs" "*"
     "@types/serve-static" "*"
+
+"@types/figlet@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/figlet/-/figlet-1.2.0.tgz#2dab76da069dc8ce5dcab461f7f2788317fb01a8"
+  integrity sha512-TDZkNpYfkc3X8yv7w1QBziZmmxzNfGKX+YjeNkMpmSiNV0QOdNf9G5cEZB3FH1/oaqpSQEdxuDzURdju2L3lng==
 
 "@types/fs-capacitor@*":
   version "2.0.0"
@@ -4442,6 +4454,11 @@ figgy-pudding@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
   integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
+
+figlet@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/figlet/-/figlet-1.5.0.tgz#2db4d00a584e5155a96080632db919213c3e003c"
+  integrity sha512-ZQJM4aifMpz6H19AW1VqvZ7l4pOE9p7i/3LyxgO2kp+PO/VcDYNqIHEMtkccqIhTXMKci4kjueJr/iCQEaT/Ww==
 
 figures@^3.0.0:
   version "3.2.0"

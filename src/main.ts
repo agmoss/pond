@@ -3,11 +3,19 @@ import { ValidationPipe } from "@nestjs/common";
 import bodyParser from "body-parser";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
+import figlet from "figlet";
 import { AppModule } from "./app.module";
 import WinstonLogger from "./--logger/winston.logger";
 import { __Logger } from "./--logger/--logger.service";
+import pkg from "../package.json"
 
 async function bootstrap() {
+
+    console.log(figlet.textSync(pkg.name, {
+        horizontalLayout: 'default',
+        verticalLayout: 'default',
+    }));
+
     const port = 3000;
 
     const bootstrapLogger = new __Logger();
@@ -29,8 +37,7 @@ async function bootstrap() {
 
     await app.listen(port);
     bootstrapLogger.log(
-        `NODE_ENV=${
-            process.env.NODE_ENV
+        `NODE_ENV=${process.env.NODE_ENV
         } => Application is running on: ${await app.getUrl()} :Port ${port}`
     );
 }
