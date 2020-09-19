@@ -1,10 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PondInput } from './dto/ponds.input';
 import { PondsArgs } from './dto/ponds.args';
 import { Pond } from './pond.model';
+import { __Logger } from '../--logger/--logger.service';
 
 @Injectable()
 export class PondsService {
+
+    constructor(
+        @Inject(__Logger) private readonly logger: __Logger,
+    ){
+        this.logger.setContext(PondsService.name)
+    }
 
     async create(data: PondInput): Promise<Pond> {
         return {
@@ -27,7 +34,7 @@ export class PondsService {
     }
 
     async findAll(pondsArgs: PondsArgs): Promise<Pond[]> {
-        console.log(pondsArgs)
+        this.logger.log(pondsArgs)
         return [
             {
                 id: "findAll",

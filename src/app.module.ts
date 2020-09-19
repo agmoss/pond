@@ -4,6 +4,7 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { PondsModule } from './ponds/ponds.module';
 import { GraphqlOptions } from "./graphql.options";
+import { LoggerModule } from './--logger/--logger.module';
 
 @Module({
     imports: [
@@ -11,6 +12,7 @@ import { GraphqlOptions } from "./graphql.options";
             useClass: GraphqlOptions,
         }),
         PondsModule,
+        LoggerModule,
     ],
     controllers: [AppController],
     providers: [AppService],
