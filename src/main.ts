@@ -18,7 +18,7 @@ async function bootstrap() {
         })
     );
 
-    const port = 3000;
+    const port = 3007;
 
     const bootstrapLogger = new __Logger();
     bootstrapLogger.setContext(bootstrap.name);

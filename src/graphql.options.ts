@@ -8,10 +8,13 @@ export class GraphqlOptions implements GqlOptionsFactory {
             path: "/api",
             installSubscriptionHandlers: true,
             context: ({ req }) => ({ req }),
-            useGlobalPrefix: true,
             debug: true,
             playground: true,
             autoSchemaFile: "schema.gql",
+            uploads: {
+                maxFileSize: 20000000, // 20 MB
+                maxFiles: 5
+            }
         };
     }
 }

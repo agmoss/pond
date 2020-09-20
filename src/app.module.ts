@@ -8,6 +8,9 @@ import { ArticlesModule } from "./articles/articles.module";
 import { GraphqlOptions } from "./graphql.options";
 import { LoggerModule } from "./--logger/--logger.module";
 import { MongooseConfigService } from "./mongoose.options";
+import { MulterModule } from '@nestjs/platform-express';
+import { FilesController } from './files/files.controller';
+import { FilesModule } from './files/files.module';
 
 @Module({
     imports: [
@@ -17,10 +20,14 @@ import { MongooseConfigService } from "./mongoose.options";
         MongooseModule.forRootAsync({
             useClass: MongooseConfigService,
         }),
+        MulterModule.register({
+            dest: './files',
+        }),
         ArticlesModule,
         LoggerModule,
+        FilesModule,
     ],
-    controllers: [AppController],
+    controllers: [AppController, FilesController],
     providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
