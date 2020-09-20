@@ -8,12 +8,18 @@ mutation {
     ) {
         id
         title
+        description
+        creationDate
+        opts
     }
 }
 
-query{
-    ponds{
-        description
+query {
+    ponds {
         id
+        title
+        description
+        creationDate
+        opts
     }
 }

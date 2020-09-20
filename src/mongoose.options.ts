@@ -1,7 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { MongooseOptionsFactory, MongooseModuleOptions } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+import {
+    MongooseOptionsFactory,
+    MongooseModuleOptions,
+} from "@nestjs/mongoose";
+import mongoose from "mongoose";
+import { MongoMemoryServer } from "mongodb-memory-server";
 
 @Injectable()
 export class MongooseConfigService implements MongooseOptionsFactory {

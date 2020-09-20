@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 
 import { PondInput } from "./dto/ponds.input";
 import { PondsArgs } from "./dto/ponds.args";
@@ -12,12 +12,16 @@ import { __Logger } from "../--logger/--logger.service";
 export class PondsService {
     constructor(
         @Inject(__Logger) private readonly logger: __Logger,
-        @InjectModel(Pond.name) private readonly pondModel: Model<Pond>) {
+        @InjectModel(Pond.name) private readonly pondModel: Model<Pond>
+    ) {
         this.logger.setContext(PondsService.name);
     }
 
     async create(data: PondInput): Promise<Pond> {
-        const createdPond = new this.pondModel(data);
+        const createdPond = new this.pondModel({
+            ...data,
+            creationDate: new Date(),
+        });
         return createdPond.save();
     }
 

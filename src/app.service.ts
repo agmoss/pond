@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+
 import pkg from "../package.json";
 
 @Injectable()
