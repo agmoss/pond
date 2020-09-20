@@ -28,7 +28,9 @@ export class ArticlesResolver {
     }
 
     @Mutation((returns) => ArticleType)
-    async addArticle(@Args("articleData") articleData: ArticleInput): Promise<ArticleType> {
+    async addArticle(
+        @Args("articleData") articleData: ArticleInput
+    ): Promise<ArticleType> {
         const article = await this.articlesService.create(articleData);
         pubSub.publish("articleAdded", { articleAdded: article });
         return article;

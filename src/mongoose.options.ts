@@ -9,9 +9,7 @@ import { __Logger } from "./--logger/--logger.service";
 
 @Injectable()
 export class MongooseConfigService implements MongooseOptionsFactory {
-
     createMongooseOptions(): MongooseModuleOptions {
-
         const mongooseLogger = new __Logger();
         mongooseLogger.setContext(this.createMongooseOptions.name);
 
@@ -19,7 +17,7 @@ export class MongooseConfigService implements MongooseOptionsFactory {
         mongoose.Promise = Promise;
 
         return mongoServer.getUri().then((mongoUri) => {
-            mongooseLogger.log(mongoUri)
+            mongooseLogger.log(mongoUri);
             return {
                 uri: mongoUri,
             };

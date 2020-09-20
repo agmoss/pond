@@ -9,7 +9,9 @@ import { Article, ArticleSchema } from "./article.schema";
 
 @Module({
     imports: [
-        MongooseModule.forFeature([{ name: Article.name, schema: ArticleSchema }]),
+        MongooseModule.forFeature([
+            { name: Article.name, schema: ArticleSchema },
+        ]),
     ],
     providers: [ArticlesResolver, ArticlesService, DateScalar, __Logger],
 })
