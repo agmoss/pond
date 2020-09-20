@@ -2,7 +2,7 @@ import { ArgsType, Field, Int } from "@nestjs/graphql";
 import { Max, Min } from "class-validator";
 
 @ArgsType()
-export class PondsArgs {
+export class ArticleArgs {
     @Field((type) => Int)
     @Min(0)
     skip = 0;

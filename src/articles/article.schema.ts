@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 
 @Schema()
-export class Pond extends Document {
+export class Article extends Document {
     @Prop()
     title: string;
     @Prop()
@@ -13,4 +13,4 @@ export class Pond extends Document {
     opts: string[];
 }
 
-export const PondSchema = SchemaFactory.createForClass(Pond);
+export const ArticleSchema = SchemaFactory.createForClass(Article);

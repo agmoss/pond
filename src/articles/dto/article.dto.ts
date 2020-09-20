@@ -1,7 +1,7 @@
 import { ObjectType, Field, ID } from "@nestjs/graphql";
 
 @ObjectType()
-export class PondType {
+export class ArticleType {
     @Field(() => ID)
     readonly id?: string;
     @Field()

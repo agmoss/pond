@@ -1,6 +1,6 @@
 mutation {
-    addPond(
-        pondData: {
+    addArticle(
+        articleData: {
             title: "sample"
             description: "sample --------------------------------------"
             opts: ["opts1", "opts2"]
@@ -15,7 +15,7 @@ mutation {
 }
 
 query {
-    ponds {
+    articles {
         id
         title
         description

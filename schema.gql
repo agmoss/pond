@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type PondType {
+type ArticleType {
   id: ID!
   title: String!
   description: String!
@@ -14,21 +14,21 @@ type PondType {
 scalar Date
 
 type Query {
-  pond(id: String!): PondType!
-  ponds(skip: Int = 0, take: Int = 25): [PondType!]!
+  article(id: String!): ArticleType!
+  articles(skip: Int = 0, take: Int = 25): [ArticleType!]!
 }
 
 type Mutation {
-  addPond(pondData: PondInput!): PondType!
-  removePond(id: String!): Boolean!
+  addArticle(articleData: ArticleInput!): ArticleType!
+  removeArticle(id: String!): Boolean!
 }
 
-input PondInput {
+input ArticleInput {
   title: String!
   description: String
   opts: [String!]!
 }
 
 type Subscription {
-  pondAdded: PondType!
+  articleAdded: ArticleType!
 }

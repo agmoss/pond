@@ -4,7 +4,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { PondsModule } from "./ponds/ponds.module";
+import { ArticlesModule } from "./articles/articles.module";
 import { GraphqlOptions } from "./graphql.options";
 import { LoggerModule } from "./--logger/--logger.module";
 import { MongooseConfigService } from "./mongoose.options";
@@ -17,7 +17,7 @@ import { MongooseConfigService } from "./mongoose.options";
         MongooseModule.forRootAsync({
             useClass: MongooseConfigService,
         }),
-        PondsModule,
+        ArticlesModule,
         LoggerModule,
     ],
     controllers: [AppController],
