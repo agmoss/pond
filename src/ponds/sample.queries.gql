@@ -1,0 +1,19 @@
+mutation {
+    addPond(
+        pondData: {
+            title: "sample"
+            description: "sample --------------------------------------"
+            opts: ["opts1", "opts2"]
+        }
+    ) {
+        id
+        title
+    }
+}
+
+query{
+    ponds{
+        description
+        id
+    }
+}

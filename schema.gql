@@ -2,10 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Pond {
+type PondType {
   id: ID!
   title: String!
-  description: String
+  description: String!
   creationDate: Date!
   opts: [String!]!
 }
@@ -14,12 +14,12 @@ type Pond {
 scalar Date
 
 type Query {
-  pond(id: String!): Pond!
-  ponds(skip: Int = 0, take: Int = 25): [Pond!]!
+  pond(id: String!): PondType!
+  ponds(skip: Int = 0, take: Int = 25): [PondType!]!
 }
 
 type Mutation {
-  addPond(pondData: PondInput!): Pond!
+  addPond(pondData: PondInput!): PondType!
   removePond(id: String!): Boolean!
 }
 
@@ -30,5 +30,5 @@ input PondInput {
 }
 
 type Subscription {
-  pondAdded: Pond!
+  pondAdded: PondType!
 }

@@ -3,17 +3,17 @@ import { Args, Mutation, Query, Resolver, Subscription } from "@nestjs/graphql";
 import { PubSub } from "apollo-server-express";
 import { PondInput } from "./dto/ponds.input";
 import { PondsArgs } from "./dto/ponds.args";
-import { Pond } from "./pond.model";
 import { PondsService } from "./ponds.service";
+import { PondType } from "./dto/ponds.dto";
 
 const pubSub = new PubSub();
 
-@Resolver((of) => Pond)
+@Resolver()
 export class PondsResolver {
     constructor(private readonly pondsService: PondsService) {}
 
-    @Query((returns) => Pond)
-    async pond(@Args("id") id: string): Promise<Pond> {
+    @Query((returns) => PondType)
+    async pond(@Args("id") id: string): Promise<PondType> {
         const recipe = await this.pondsService.findOneById(id);
         if (!recipe) {
             throw new NotFoundException(id);
@@ -21,13 +21,13 @@ export class PondsResolver {
         return recipe;
     }
 
-    @Query((returns) => [Pond])
-    ponds(@Args() pondsArgs: PondsArgs): Promise<Pond[]> {
+    @Query((returns) => [PondType])
+    ponds(@Args() pondsArgs: PondsArgs): Promise<PondType[]> {
         return this.pondsService.findAll(pondsArgs);
     }
 
-    @Mutation((returns) => Pond)
-    async addPond(@Args("pondData") pondData: PondInput): Promise<Pond> {
+    @Mutation((returns) => PondType)
+    async addPond(@Args("pondData") pondData: PondInput): Promise<PondType> {
         const pond = await this.pondsService.create(pondData);
         pubSub.publish("pondAdded", { pondAdded: pond });
         return pond;
@@ -38,7 +38,7 @@ export class PondsResolver {
         return this.pondsService.remove(id);
     }
 
-    @Subscription((returns) => Pond)
+    @Subscription((returns) => PondType)
     pondAdded() {
         return pubSub.asyncIterator("pondAdded");
     }
