@@ -21,7 +21,7 @@ import { FilesModule } from './files/files.module';
             useClass: MongooseConfigService,
         }),
         MulterModule.register({
-            dest: './files',
+            dest: './media',
         }),
         ArticlesModule,
         LoggerModule,
