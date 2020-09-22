@@ -1,9 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class FilesService {
-
-    async uploadFile(file:any) {
+    async uploadFile(file: any) {
         const response = {
             originalname: file.originalname,
             filename: file.filename,
@@ -11,9 +10,9 @@ export class FilesService {
         return response;
     }
 
-    async uploadMultipleFiles(files:any) {
+    async uploadMultipleFiles(files: any) {
         const response = [];
-        files.forEach((file: { originalname: any; filename: any; }) => {
+        files.forEach((file: { originalname: any; filename: any }) => {
             const fileReponse = {
                 originalname: file.originalname,
                 filename: file.filename,
@@ -22,5 +21,4 @@ export class FilesService {
         });
         return response;
     }
-
 }

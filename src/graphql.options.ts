@@ -13,8 +13,8 @@ export class GraphqlOptions implements GqlOptionsFactory {
             autoSchemaFile: "schema.gql",
             uploads: {
                 maxFileSize: 20000000, // 20 MB
-                maxFiles: 5
-            }
+                maxFiles: 5,
+            },
         };
     }
 }
